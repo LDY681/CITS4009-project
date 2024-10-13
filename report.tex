@@ -1,0 +1,114 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={CITS4009 Project: Exploratory Data Analytics and Predictive Modelling},
+  pdfauthor={Dayu LIU (24188516)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{CITS4009 Project: Exploratory Data Analytics and Predictive
+Modelling}
+\author{Dayu LIU (24188516)}
+\date{Semester 2, 2024}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}\label{introduction}
+
+In this project, we are going to analyze the dataset from WHO, study the
+dataset, make a prediction and make a model to demonstrate it
+\vspace{0.5cm}
+
+\section{Data exploration}\label{data-exploration}
+
+In this first step of our project, we will first have a glance at the
+dataset. We begin by exploring the structure and summary of the dataset
+to understand its composition and the variables it contains. From
+\texttt{str(df)}, we can see that the dataset contains 6,840 rows and 31
+variables. Each row represents data for a specific country and year,
+while the columns consist of a wide range of health and environmental
+factors contributing to death rates. Some of the Key columns include:
+Entity: Country name. Year: Data collection year, ranging from 1990 to
+2019. Outdoor Air Pollution: Air pollution data measured in number of
+deaths. High Systolic Blood Pressure: Health risk factor measured by the
+number of deaths. From \texttt{summary(df)}, we can observe that we
+observe that: Outdoor Air Pollution: The minimum value is 0, while the
+maximum is 4,506,193 deaths. The median value is much lower, indicating
+that only a few countries have very high deaths due to air pollution.
+High Systolic Blood Pressure: The values range widely, with a median of
+8,770 deaths and a maximum of over 10 million. This shows it's a
+significant cause of death globally. Other risk factors, such as Alcohol
+Use, Smoking, and Unsafe Water Source, show significant variation across
+the countries. From \texttt{head(df)}, The first six rows of the dataset
+show data for Afghanistan from 1990 to 1995. A few key trends:
+
+Outdoor Air Pollution: A slight increase in deaths over time, from 3,169
+in 1990 to 3,869 in 1995. High Systolic Blood Pressure: The number of
+deaths rises consistently, from 25,633 in 1990 to 28,090 in 1995. Child
+Stunting: A concerning rise in child stunting from 7,686 in 1990 to
+11,973 in 1995. This analysis shows that health risks and causes of
+death vary significantly across years, making it a crucial dataset for
+public health planning.
+
+\end{document}
