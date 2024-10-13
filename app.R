@@ -46,11 +46,11 @@ merged_data <- merged_data %>%
   mutate(Death_rate = Total_deaths / Population) %>%
   ungroup() %>%
   filter(!is.na(GDP_per_capita) & !is.na(Population))
-# Add death_rate_class classifier
+# Add Death_rate_class classifier
 threshold <- median(merged_data$Death_rate, na.rm = TRUE)
 merged_data <- merged_data %>%
   mutate(Death_rate_class = ifelse(Death_rate > threshold, 1, 0))
-# Add continent class to dataset
+# Add continent_class to dataset
 continent_dict <- list(
   Asia = c("AFG", "ARM", "AZE", "BHR", "BGD", "BTN", "BRN", "KHM", "CHN", "CYP", "GEO", "IND", "IDN", "IRN", "IRQ", "ISR", "JPN", "JOR", "KAZ", "KWT", "KGZ", "LAO", "LBN", "MYS", "MDV", "MNG", "MMR", "NPL", "OMN", "PAK", "PSE", "PHL", "PRK", "QAT", "KOR", "SAU", "SGP", "LKA", "SYR", "TJK", "TLS", "THA", "TUR", "TKM", "ARE", "UZB", "VNM", "YEM"),
   Europe = c("ALB", "AND", "AUT", "BLR", "BEL", "BIH", "BGR", "HRV", "CYP", "CZE", "DNK", "EST", "FIN", "FRA", "DEU", "GRC", "HUN", "ISL", "IRL", "ITA", "LVA", "LTU", "LUX", "MLT", "MDA", "MCO", "MNE", "NLD", "MKD", "NOR", "POL", "PRT", "ROU", "RUS", "SMR", "SRB", "SVK", "SVN", "ESP", "SWE", "CHE", "UKR", "GBR"),
@@ -72,7 +72,7 @@ merged_data <- merged_data %>%
     Continent == "South_America" ~ 5,
     Continent == "Oceania" ~ 6
   ))
-# Add Child.related.death
+# Add Child.related.death class
 merged_data <- merged_data %>%
   mutate(Child.related.death = rowSums(select(., Child.wasting, Child.stunting, Non.exclusive.breastfeeding, Discontinued.breastfeeding, Vitamin.A.deficiency), na.rm = TRUE))
 
@@ -264,7 +264,7 @@ server <- function(input, output, session) {
     }
     hull_data <- find_convex_hull(cluster_plot, kmeans_model$cluster)
     
-    # Plot cluster betwwen PC1 and PC2
+    # Plot cluster between PC1 and PC2
     ggplot(cluster_plot, aes(x = PC1, y = PC2, color = cluster)) +
       geom_point() +
       geom_polygon(data = hull_data, aes(group = cluster, fill = cluster), alpha = 0.4) +
