@@ -17,9 +17,9 @@ library(gridExtra)
 # Introduction
 In this project, we will analyze a dataset from the World Health Organization (WHO), combined with population and GDP per capita data from the World Bank. The aim is to explore the factors contributing to high or low death rates in different countries. By leveraging various health and environmental variables, we develop predictive models to analyze these death rates. Additionally, we implement a clustering demonstration to reveal how countries are grouped based on the selected features.
 
-Additional codes were also created for project analysis only outside the Shiny app, they were provided in project.R in the github repository for reference `https://github.com/LDY681/CITS4009-project`. 
+Additional codes were also created for project analysis outside the Shiny app, they were provided in project.R in the zip file for reference, along with the datasets we used. 
 
-> Shiny App Demonstraion: "https://youtu.be/ffEx38ijOTM?si=b6-lYeM8_s6pdS4E"
+> Shiny App Demonstraion: "https://www.youtube.com/watch?v=slSngJBQzzU"
 
 \vspace{0.5cm}
 
